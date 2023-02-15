@@ -16,4 +16,4 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* run `node dist/app.js` and follow the prompt
+* run `npm start` and follow the prompt
