@@ -6,14 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const findFare_1 = __importDefault(require("./findFare"));
 describe("findFare", () => {
     test("returns the correct fare when it exists", () => {
-        const availableGaavos = [1, 2, 3, 4];
-        const fare = 10;
+        const availableGaavos = [6, 13, 13, 21, 23, 24];
+        const fare = 57;
         let result = (0, findFare_1.default)(availableGaavos, fare);
-        expect(result).toStrictEqual([1, 2, 3, 4]);
+        expect(result).toStrictEqual([13, 21, 23]);
     });
     test("returns an empty array when exact fare can't be met", () => {
-        const availableGaavos = [2, 2, 4];
-        const fare = 7;
+        const availableGaavos = [1, 4, 6];
+        const fare = 8;
         expect((0, findFare_1.default)(availableGaavos, fare)).toStrictEqual([]);
     });
     test("returns an empty array when passenger can't afford the fare", () => {
