@@ -2,9 +2,10 @@
   "name": "nickels-takehome",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node dist/app.js"
   },
   "author": "",
   "license": "ISC",
