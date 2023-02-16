@@ -10,24 +10,24 @@ const fareInputPrompt: string =
 const fareInputError: string =
   "hmmm... that didn't seem to work. Make sure the fare is a positive, whole number.";
 
-console.log(gaavosInputPrompt);
+console.info(gaavosInputPrompt);
 let gaavosInput = promptUser();
 let avaiableGaavos = getAvailableGaavos(gaavosInput);
 
 while (!avaiableGaavos) {
-  console.log(gavosInputError);
+  console.error(gavosInputError);
   gaavosInput = promptUser();
   avaiableGaavos = getAvailableGaavos(gaavosInput);
 }
 
-console.log(fareInputPrompt);
+console.info(fareInputPrompt);
 let fareInput = promptUser();
 let fare = getFare(fareInput);
 
 while (!fare) {
-  console.log(fareInputError);
+  console.error(fareInputError);
   fareInput = promptUser();
   fare = getFare(fareInput);
 }
 
-console.log(outputResults(avaiableGaavos, fare));
+console.info(outputResults(avaiableGaavos, fare));

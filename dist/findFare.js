@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.findFare = void 0;
 const findFare = (availableGaavos, fare) => {
     if (availableGaavos.includes(fare)) {
         return [fare];
@@ -19,9 +20,9 @@ const findFare = (availableGaavos, fare) => {
     }
     return [];
 };
+exports.findFare = findFare;
 const canAffordFare = (gaavos, fare) => {
     const gaavosOnHand = gaavos.reduce((partialSum, coin) => partialSum + coin, 0);
     return gaavosOnHand >= fare;
 };
-exports.default = findFare;
 //# sourceMappingURL=findFare.js.map

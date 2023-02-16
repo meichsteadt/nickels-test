@@ -1,4 +1,4 @@
-const findFare = (availableGaavos: Array<number>, fare: number) => {
+const findFare = (availableGaavos: number[], fare: number) => {
   if (availableGaavos.includes(fare)) {
     return [fare];
   }
@@ -6,15 +6,15 @@ const findFare = (availableGaavos: Array<number>, fare: number) => {
     return [];
   }
 
-  const usableGaavos: Array<number> = availableGaavos.filter(
+  const usableGaavos: number[] = availableGaavos.filter(
     (coin: number) => coin < fare
   );
 
   for (let i = 0; i < usableGaavos.length; i++) {
     const gaavo: number = usableGaavos[i];
     const remainingFare: number = fare - gaavo;
-    const remainingGaavos: Array<number> = usableGaavos.slice(i + 1);
-    const nextGaavoCombination: Array<number> = findFare(
+    const remainingGaavos: number[] = usableGaavos.slice(i + 1);
+    const nextGaavoCombination: number[] = findFare(
       remainingGaavos,
       remainingFare
     );
@@ -27,7 +27,7 @@ const findFare = (availableGaavos: Array<number>, fare: number) => {
   return [];
 };
 
-const canAffordFare = (gaavos: Array<number>, fare: number): boolean => {
+const canAffordFare = (gaavos: number[], fare: number): boolean => {
   const gaavosOnHand = gaavos.reduce(
     (partialSum, coin) => partialSum + coin,
     0
@@ -35,4 +35,4 @@ const canAffordFare = (gaavos: Array<number>, fare: number): boolean => {
   return gaavosOnHand >= fare;
 };
 
-export default findFare;
+export { findFare };

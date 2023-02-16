@@ -1,7 +1,7 @@
 const promptUser = require("prompt-sync")({ sigint: true });
-import findFare from "./findFare";
+import { findFare } from "./findFare";
 
-const stringToNumberArray = (string: string): Array<number> => {
+const stringToNumberArray = (string: string): number[] => {
   return string.split(",").map((numberString) => {
     const int = parseInt(numberString);
 
@@ -13,14 +13,14 @@ const stringToNumberArray = (string: string): Array<number> => {
   });
 };
 
-const getFareCombinationAsString = (fareCombo: Array<number>): string => {
+const getFareCombinationAsString = (fareCombo: number[]): string => {
   return fareCombo.reduce(
     (partialString, number) => partialString + `\n${number}G`,
     ""
   );
 };
 
-const getAvailableGaavos = (userInput: string): Array<number> => {
+const getAvailableGaavos = (userInput: string): number[] => {
   try {
     return stringToNumberArray(userInput);
   } catch {
@@ -38,7 +38,7 @@ const getFare = (userInput: string): number => {
   return fare;
 };
 
-const outputResults = (avaiableGaavos: Array<number>, fare: number): string => {
+const outputResults = (avaiableGaavos: number[], fare: number): string => {
   const fareCombo = findFare(avaiableGaavos, fare);
 
   if (fareCombo.length === 1) {

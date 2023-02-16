@@ -1,9 +1,10 @@
-import findFare from "./findFare";
+import { findFare } from "./findFare";
 
 describe("findFare", () => {
   test("returns the correct fare when it exists", () => {
     const availableGaavos = [6, 13, 13, 21, 23, 24];
     const fare = 57;
+
     let result = findFare(availableGaavos, fare);
 
     expect(result).toStrictEqual([13, 21, 23]);
@@ -13,13 +14,17 @@ describe("findFare", () => {
     const availableGaavos = [1, 4, 6];
     const fare = 8;
 
-    expect(findFare(availableGaavos, fare)).toStrictEqual([]);
+    const result = findFare(availableGaavos, fare);
+
+    expect(result).toStrictEqual([]);
   });
 
   test("returns an empty array when passenger can't afford the fare", () => {
     const availableGaavos = [2, 2];
     const fare = 7;
 
-    expect(findFare(availableGaavos, fare)).toStrictEqual([]);
+    const result = findFare(availableGaavos, fare);
+
+    expect(result).toStrictEqual([]);
   });
 });

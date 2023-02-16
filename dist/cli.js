@@ -1,11 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.outputResults = exports.getFare = exports.getAvailableGaavos = void 0;
 const promptUser = require("prompt-sync")({ sigint: true });
-const findFare_1 = __importDefault(require("./findFare"));
+const findFare_1 = require("./findFare");
 const stringToNumberArray = (string) => {
     return string.split(",").map((numberString) => {
         const int = parseInt(numberString);
@@ -36,7 +33,7 @@ const getFare = (userInput) => {
 };
 exports.getFare = getFare;
 const outputResults = (avaiableGaavos, fare) => {
-    const fareCombo = (0, findFare_1.default)(avaiableGaavos, fare);
+    const fareCombo = (0, findFare_1.findFare)(avaiableGaavos, fare);
     if (fareCombo.length === 1) {
         return `Just use your ${fare}G piece! We're honestly a little surprised you even used this app at all...`;
     }
